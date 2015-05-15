@@ -1,0 +1,61 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: lightgray;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.header {
+  background-color: lightgreen;
+  height: 50px;
+}
+
+.header-content{
+  width:80%;
+  margin: 0 auto;
+}
+
+.header-username {
+  float: right;
+  line-height: 40px;
+}
+
+
+.main-content{
+  width: 80%;
+  margin: 0 auto;
+  /*margin-left: auto;
+  margin-right: auto;*/
+  background-color: white;
+  min-height: 1500px;
+  padding: 20px;
+}
+
+.tickler-nav{
+  float:left;
+}
+.tickler-list{
+  list-style: none;
+  width: 100px;
+}
+
+.tickler-folder{
+  cursor: pointer;
+}
+
+.tickler-folder:hover{
+  font-size: 20px;
+}
+
+.badge{
+  background-color: red;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 10px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}

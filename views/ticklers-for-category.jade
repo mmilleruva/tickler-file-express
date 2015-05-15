@@ -1,0 +1,8 @@
+extends layout-tickler
+
+block content
+  ul
+    each tickler in ticklers
+      li
+        h3=tickler.cat
+        p=tickler.desc
