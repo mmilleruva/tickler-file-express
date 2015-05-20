@@ -1,0 +1,22 @@
+
+#tickler-files{
+  float:left;
+}
+.card {
+  display: block;
+  background-color: white;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 6px 5px 0px rgba(158,158,158,1);
+  -moz-box-shadow: 0px 6px 6px 0px rgba(158,158,158,1);
+  box-shadow: 0px 6px 6px 0px rgba(158,158,158,1);
+}
+
+.tickler-card{
+
+ min-width: 400px;
+ padding: 20px;
+ margin:20px;
+
+
+}
+

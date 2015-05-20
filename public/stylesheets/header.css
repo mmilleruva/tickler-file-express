@@ -1,0 +1,33 @@
+.header {
+  background-color: #EE3534;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  position: fixed;
+  left: 0;
+  right:0;
+  height: 60px;
+  color: white;
+  line-height: 60px;
+  vertical-align: middle;
+  z-index: 10;
+}
+
+.header-content{
+  width:80%;
+  margin: 0 auto;
+}
+
+.header-username {
+  float: right;
+  line-height: 40px;
+}
+
+.header-menu {
+  background-image: url("/images/hamburger.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: block;
+  float: left;
+  height: 60px;
+  width: 60px;
+  margin-left: 20px;
+}

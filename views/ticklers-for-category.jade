@@ -1,8 +1,9 @@
 extends layout-tickler
 
 block content
-  ul
+  #tickler-files
+    h2 Ticklers
     each tickler in ticklers
-      li
+      .card.tickler-card
         h3=tickler.cat
         p=tickler.desc

@@ -5,9 +5,12 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     .header
-      .header-content
-        if user
-          span.header-username= user.username
+      span.header-menu
+      if user
+        span.header-username= user.username
 
     .main-content
       block content
+
+
+
