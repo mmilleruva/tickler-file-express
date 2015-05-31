@@ -1,19 +1,21 @@
-var _ = require('underscore');
 var ticklerRepo = require('../repositories/tickler-repo');
 
-var getUserTicklersByCategory = function(userId, cb){
+var findByUserId = function(userId, cb){
   ticklerRepo.findByUserId(userId, function(err, ticklers){
     if(err){
       return cb(err);
     }
-    var groupedTicklers = _.groupBy(ticklers, function(tickler){
-      return tickler.cat;
-    });
+    return cb(null,ticklers);
+  });
+}
 
-    return cb(null,groupedTicklers);
+var create = function(tickler, cb){
+  ticklerRepo.create(tickler, function(err){
+    cb(err);
   });
 }
 
 module.exports = {
-  getUserTicklersByCategory: getUserTicklersByCategory
+  findByUserId: findByUserId,
+  create:       create
 }

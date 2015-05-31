@@ -1,7 +1,9 @@
-h1 My Ticklers
+extends layout-tickler
 
-ul
-  each tickler in ticklers
-    li
-      h3=tickler.cat
-      p=tickler.desc
+block content
+  #tickler-files
+    h2 All Ticklers
+    each tickler in ticklers
+      .card.tickler-card
+        h3=tickler.cat
+        p=tickler.desc

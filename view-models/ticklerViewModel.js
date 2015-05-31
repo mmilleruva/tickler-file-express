@@ -9,13 +9,18 @@ var getUserTicklersByCategory = function(ticklers){
 
 var create = function(ticklersForUser, category){
   var ticklerGroups = getUserTicklersByCategory(ticklersForUser);
-
-  return {
+  var result = {
     ticklerGroups: ticklerGroups,
-    ticklers: ticklerGroups[category],
+    ticklers: ticklersForUser,
     categories: ticklerCategories.values,
     category: category
   };
+
+  if (category) {
+    result.ticklers = ticklerGroups[category];
+  };
+
+  return result
 }
 
 module.exports = {

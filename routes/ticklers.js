@@ -1,25 +1,16 @@
 var express       = require('express');
 var router        = express.Router();
-var ticklerRepo   = require('../repositories/tickler-repo');
+var ticklerService = require('../services/tickler-service');
 var requireLogin  = require('../middleware/require-login');
 var ticklerViewModel = require('../view-models/ticklerViewModel');
 
 router.get('/', requireLogin, function(req, res, next){
-  ticklerRepo.findByUserId(req.user._id, function(err, ticklers){
+  ticklerService.findByUserId(req.user._id, function(err, ticklers){
     if (err) {
+      console.log(err);
     }
     var viewModel = ticklerViewModel.create(ticklers);
     res.render('ticklers', viewModel);
-  });
-});
-
-router.get('/:category', requireLogin, function(req, res, next){
-  ticklerRepo.findByUserId(req.user._id, function(err, ticklers){
-    if (err) {
-    }
-
-    var viewModel = ticklerViewModel.create(ticklers, req.params.category);
-    res.render('ticklers-for-category', viewModel);
   });
 });
 
@@ -35,13 +26,24 @@ router.post('/create', requireLogin, function(req, res, next){
     userId: req.user._id
   };
 
-  ticklerRepo.create(tickler, function(err){
+  ticklerService.create(tickler, function(err){
     if (err) {
       console.log(err);
     }
     res.redirect('/ticklers');
   });
 
+});
+
+router.get('/:category', requireLogin, function(req, res, next){
+  ticklerService.findByUserId(req.user._id, function(err, ticklers){
+    if (err) {
+      console.log(err);
+    }
+
+    var viewModel = ticklerViewModel.create(ticklers, req.params.category);
+    res.render('ticklers-for-category', viewModel);
+  });
 });
 
 module.exports = router;
