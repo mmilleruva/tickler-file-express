@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 source ./local/env-dev.sh
 
-echo "$MAILGUN_API_KEY"
-DEBUG=tickler-file-express:* nodemon ./bin/www
+DEBUG=tickler-file-express:* MONGODB_CONNECTION="$MONGODB_CONNECTION" nodemon ./bin/www
