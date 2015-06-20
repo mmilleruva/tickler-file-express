@@ -4,7 +4,7 @@ var ticklerService = require('../services/tickler-service');
 var requireLogin  = require('../middleware/require-login');
 var ticklerViewModel = require('../view-models/ticklerViewModel');
 
-router.get('/', requireLogin, function(req, res, next){
+router.get('/', requireLogin, function(req, res){
   ticklerService.findByUserId(req.user._id, function(err, ticklers){
     if (err) {
       console.log(err);
@@ -14,11 +14,11 @@ router.get('/', requireLogin, function(req, res, next){
   });
 });
 
-router.get('/create', requireLogin, function(req, res, next){
+router.get('/create', requireLogin, function(req, res){
   res.render('ticklers-create');
 });
 
-router.post('/create', requireLogin, function(req, res, next){
+router.post('/create', requireLogin, function(req, res){
 
   var tickler = {
     desc: req.body.desc,
@@ -35,7 +35,7 @@ router.post('/create', requireLogin, function(req, res, next){
 
 });
 
-router.get('/:category', requireLogin, function(req, res, next){
+router.get('/:category', requireLogin, function(req, res){
   ticklerService.findByUserId(req.user._id, function(err, ticklers){
     if (err) {
       console.log(err);

@@ -6,21 +6,20 @@ var ticklerService = require('../services/tickler-service');
 var requireLogin = require('../middleware/require-login');
 
 /* GET home page. */
-router.get('/', requireLogin, function(req, res, next) {
+router.get('/', requireLogin, function(req, res) {
   ticklerService.getUserTicklersByCategory(req.user._id, function(err, ticklerGroups){
     if (err) {
       return console.log(err);
-    };
+    }
     res.render('index', {
       title: 'Ticklers',
       user: req.user,
       ticklerGroups: ticklerGroups
     });
-  })
-
+  });
 });
 
-router.get('/signup', function(req, res, next){
+router.get('/signup', function(req, res){
   res.render('signup');
 });
 
@@ -43,7 +42,7 @@ router.post('/signup', function(req, res, next){
   });
 });
 
-router.get('/login', function(req, res, next){
+router.get('/login', function(req, res){
   res.render('login');
 });
 

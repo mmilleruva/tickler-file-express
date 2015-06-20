@@ -10,21 +10,21 @@ var create = function(ticklerData, cb){
   tickler.save(function(err){
     if (err) {
       return cb(err);
-    };
+    }
     return cb(null, tickler);
-  })
-}
+  });
+};
 
 var findByUserId = function(userId, cb){
   Tickler.find({userId: userId}, function(err, ticklers){
     if(err){
       return cb(err);
     }
-    return cb(null, ticklers)
-  })
-}
+    return cb(null, ticklers);
+  });
+};
 
 module.exports = {
   create: create,
   findByUserId: findByUserId
-}
+};

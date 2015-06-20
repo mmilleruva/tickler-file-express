@@ -7,15 +7,15 @@ var findByUserId = function(userId, cb){
     }
     return cb(null,ticklers);
   });
-}
+};
 
 var create = function(tickler, cb){
   ticklerRepo.create(tickler, function(err){
     cb(err);
   });
-}
+};
 
 module.exports = {
   findByUserId: findByUserId,
   create:       create
-}
+};

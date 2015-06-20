@@ -11,22 +11,24 @@ var mailgun = new Mailgun({
 console.log(domain);
 console.log(apiKey);
 var sendEmail = function(to, from, subject, html, cb){
+  cb = cb || function(){};
   var data = {
     from: from,
     to: to,
     subject: subject,
-    html: "<h1>Howdy</h1>"
+    html: html
   };
 
-  mailgun.messages().send(data, function(err, body){
+  mailgun.messages().send(data, function(err){
     if (err) {
       console.log(err);
-    };
+    }
 
     console.log("message sent");
+    cb();
   });
-}
+};
 
 module.exports = {
   sendEmail: sendEmail
-}
+};

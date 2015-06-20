@@ -3,9 +3,9 @@ var ticklerCategories = require('../models/Categories');
 
 var getUserTicklersByCategory = function(ticklers){
   return _.groupBy(ticklers, function(tickler){
-      return tickler.cat;
-    });
-}
+    return tickler.cat;
+  });
+};
 
 var create = function(ticklersForUser, category){
   var ticklerGroups = getUserTicklersByCategory(ticklersForUser);
@@ -18,11 +18,11 @@ var create = function(ticklersForUser, category){
 
   if (category) {
     result.ticklers = ticklerGroups[category];
-  };
+  }
 
-  return result
-}
+  return result;
+};
 
 module.exports = {
   create: create
-}
+};
