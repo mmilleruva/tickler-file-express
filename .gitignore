@@ -1,6 +1,6 @@
 local/*
 npm-debug.log
-node_modules/*
+/node_modules
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
