@@ -10,6 +10,7 @@ router.get('/', requireLogin, function(req, res){
       console.log(err);
     }
     var viewModel = ticklerViewModel.create(ticklers);
+    viewModel.user = req.user;
     res.render('ticklers', viewModel);
   });
 });
@@ -42,7 +43,8 @@ router.get('/:category', requireLogin, function(req, res){
     }
 
     var viewModel = ticklerViewModel.create(ticklers, req.params.category);
-    res.render('ticklers-for-category', viewModel);
+    viewModel.user = req.user;
+    res.render('ticklers', viewModel);
   });
 });
 

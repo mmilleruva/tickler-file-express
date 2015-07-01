@@ -20,28 +20,7 @@ a {
   padding: 20px;
 }
 
-.tickler-nav{
-  float:left;
-}
-.tickler-list{
-  list-style: none;
-  width: 100px;
+.h2-button {
+  margin-top: 1.78rem
 }
 
-.tickler-folder{
-  cursor: pointer;
-}
-
-.tickler-folder:hover{
-  font-size: 20px;
-}
-
-.badge{
-  background-color: red;
-  margin: 10px;
-  text-decoration: none;
-  font-size: 10px;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
-}

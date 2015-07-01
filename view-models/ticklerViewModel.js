@@ -7,17 +7,33 @@ var getUserTicklersByCategory = function(ticklers){
   });
 };
 
+var createCategories = function(ticklerGroups, selectedCategory){
+  return _.map(ticklerCategories.values, function(category){
+    var categoryModel = {
+      displayName: category.displayName,
+      id: category.id,
+      active: category.id == selectedCategory
+    }
+
+    if (ticklerGroups[category.id]) {
+      categoryModel.count = ticklerGroups[category.id].length;
+    };
+    return categoryModel;
+  });
+}
+
 var create = function(ticklersForUser, category){
   var ticklerGroups = getUserTicklersByCategory(ticklersForUser);
   var result = {
     ticklerGroups: ticklerGroups,
     ticklers: ticklersForUser,
-    categories: ticklerCategories.values,
-    category: category
+    categories: createCategories(ticklerGroups, category),
+    category: "All Ticklers"
   };
 
   if (category) {
-    result.ticklers = ticklerGroups[category];
+    result.ticklers = ticklerGroups[category] || [];
+    result.category = category
   }
 
   return result;

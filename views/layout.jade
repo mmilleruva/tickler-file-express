@@ -1,16 +1,27 @@
 doctype html
 html
   head
-    title= title
+    title= Ticklers
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    .header
-      span.header-menu
-      if user
-        span.header-username= user.username
 
-    .main-content
+    //- Materialize.css
+    script(type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+  body
+    nav
+      .nav-wrapper
+        .container
+          a(href="#", class="brand-logo") Ticklers
+          ul(id="nav-mobile", class="right hide-on-med-and-down")
+            if user
+              li
+                a(href="#")= user.username
+    .container
       block content
+    block scripts
 
 
 

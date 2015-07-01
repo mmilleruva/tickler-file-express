@@ -1,9 +1,35 @@
-extends layout-tickler
+extends layout
 
 block content
-  #tickler-files
-    h2 All Ticklers
-    each tickler in ticklers
-      .card.tickler-card
-        h3=tickler.cat
-        p=tickler.desc
+  .row
+    .div(class="col s3")
+        .collection
+          each curCat in categories
+            a(class= curCat.active ? "active collection-item" : "collection-item", href="/ticklers/#{curCat.id}")=curCat.displayName
+              if curCat.count
+                span.badge=curCat.count
+      .div(class="col s9", id="tickler-files")
+        .row
+          .div(class="col s11")
+            h2= category
+          .div(class="col s1")
+            a(class="btn btn-floating btn-large waves-effect waves-light green lighten-1 h2-button modal-trigger", href="#addTicklerModal")
+              i(class="material-icons") add
+        .row
+          each tickler in ticklers
+            .card
+              .card-content
+                span(class="card-title grey-text")= tickler.desc
+                p=tickler.details
+
+  .div(id="addTicklerModal", class="modal")
+    .modal-content
+      h4 Modal Header
+      p A bunch of text
+    .modal-footer
+      a(href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat") Agree
+block scripts
+  script.
+    $(document).ready(function() {
+      $('.modal-trigger').leanModal();
+    });

@@ -1,6 +1,6 @@
 
-module.exports = {
-  values: [ {
+ticklerCategories = [
+{
   id: "January",
   displayName: "January"
 },
@@ -172,4 +172,7 @@ module.exports = {
   id: "31",
   displayName: "31"
 }]
+
+module.exports = {
+  ticklerCategories: ticklerCategories
 };
