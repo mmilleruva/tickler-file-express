@@ -4,7 +4,8 @@ var create = function(ticklerData, cb){
   var tickler = new Tickler({
       userId: ticklerData.userId,
       desc: ticklerData.desc,
-      cat: ticklerData.cat
+      cat: ticklerData.cat,
+      details: ticklerData.details
     });
 
   tickler.save(function(err){

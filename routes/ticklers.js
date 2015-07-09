@@ -20,11 +20,16 @@ router.get('/create', requireLogin, function(req, res){
 });
 
 router.post('/create', requireLogin, function(req, res){
-
+  console.log(req.body)
   var tickler = {
     desc: req.body.desc,
     cat: req.body.cat,
+    details: req.body.details,
     userId: req.user._id
+  };
+
+  if (!tickler.desc || !tickler.cat || !tickler.userId) {
+    return res.render('error',{error: new Error("Data missing")} );
   };
 
   ticklerService.create(tickler, function(err){

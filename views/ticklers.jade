@@ -24,12 +24,22 @@ block content
 
   .div(id="addTicklerModal", class="modal")
     .modal-content
-      h4 Modal Header
-      p A bunch of text
-    .modal-footer
-      a(href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat") Agree
+      h4 Create a new tickler for #{category}
+      form(class="col s12", id="login", method="post", action="/ticklers/create")
+        input(type="hidden", name="cat", value="#{category}" readonly)
+        .row
+          .div(class="input-field col s12")
+            input(type="text", placeholder="Description", name="desc")
+            label(for="desc") Description:
+        .row
+          .div(class="input-field col s12")
+            label(for="details") Details:
+            textarea(class="materialize-textarea", placeholder="Details", name="details")
+        .row
+          button(class="btn waves-effect waves-light" type="submit" name="action") Create
 block scripts
   script.
     $(document).ready(function() {
       $('.modal-trigger').leanModal();
+      $('select').material_select();
     });
