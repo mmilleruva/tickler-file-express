@@ -5,6 +5,9 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "./scripts/run-dev.sh",
+    "deploy": "eb deploy",
+    "view-prod": "open http://tickler-file-express-d.elasticbeanstalk.com/ticklers",
+    "view-dev": "open http://`boot2docker ip`:8080",
     "prepush": "npm list",
     "precommit": "jshint ."
   },

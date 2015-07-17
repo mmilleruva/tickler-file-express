@@ -24,21 +24,11 @@ router.get('/signup', function(req, res){
 });
 
 router.post('/signup', function(req, res, next){
-  var user = new User({username: req.body.email});
-  user.setPassword(req.body.password, function(err){
-    if (err) {
-        console.log("Error");
-        return next(err);
-    }
-    user.save(function(err){
-      if (err) {
-        console.log('Save error');
-      }
-
-      passport.authenticate('local')(req, res, function () {
-          res.redirect('/');
+  var user = new User({username: req.body.username});
+  User.register(user, req.body.password, function(err, user){
+      passport.authenticate('local')(req, res, function(){
+        res.redirect('/ticklers');
       });
-    });
   });
 });
 

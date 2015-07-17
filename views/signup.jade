@@ -1,11 +1,13 @@
-h1 Sign Up
-
-
-form(id="", method="POST", action="")
-  label Email
-    input(type="email", name="email" placeholder="email")
-  br
-  label Password
-    input(type="password", name="password" placeholder="placeholder")
-  br
-  input(type="submit" value="Submit")
+extends layout
+block content
+  .row
+    h1 Sign Up
+    form(id="", method="post", action="/signup" class="col s6")
+      .row
+        label(for="username") Email
+        input(type="email", name="username" placeholder="email")
+      .row
+        label(for="password") Password
+        input(type="password", name="password" placeholder="password")
+      .row
+      button(class="btn waves-effect waves-light" type="submit" name="action") Submit
